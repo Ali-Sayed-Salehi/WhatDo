@@ -3,9 +3,9 @@ using whatDo.Server.Models;
 
 namespace whatDo.Server.Data.Contexts
 {
-    public class DataContext : DbContext
+    public class WhatDoDbContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+        public WhatDoDbContext(DbContextOptions<WhatDoDbContext> options) : base(options) { }
         public DbSet<ToDoItem> Tasks { get; set; }
 
     }
