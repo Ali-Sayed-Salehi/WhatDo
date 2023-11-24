@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using whatDo.Server.Data.Contexts;
 
 #nullable disable
 
-namespace whatDo.Server.Migrations
+namespace whatDo.Server.Data.Migrations
 {
     [DbContext(typeof(WhatDoDbContext))]
-    partial class WhatDoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231124210506_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,7 +48,7 @@ namespace whatDo.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("ToDoItems");
                 });
 #pragma warning restore 612, 618
         }

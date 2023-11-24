@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using whatDo.Server.Data;
 using whatDo.Server.Data.Contexts;
 
 namespace whatDo.Server
@@ -42,6 +43,8 @@ namespace whatDo.Server
             app.MapControllers();
 
             app.MapFallbackToFile("/index.html");
+
+            app.CreateDbIfNotExists();
 
             app.Run();
         }

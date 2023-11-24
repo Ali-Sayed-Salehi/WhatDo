@@ -9,10 +9,10 @@ using whatDo.Server.Data.Contexts;
 
 #nullable disable
 
-namespace whatDo.Server.Migrations
+namespace whatDo.Server.Data.Migrations
 {
     [DbContext(typeof(WhatDoDbContext))]
-    [Migration("20231122194415_InitialCreate")]
+    [Migration("20231124212231_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -48,7 +48,7 @@ namespace whatDo.Server.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("ToDoItems");
                 });
 #pragma warning restore 612, 618
         }

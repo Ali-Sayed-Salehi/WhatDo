@@ -34,7 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
     <Folder Include="DTOs\" />
     <Folder Include="Data\Repositories\" />
     <Folder Include="Utilities\" />
