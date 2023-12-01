@@ -1,7 +1,12 @@
-﻿namespace WhatDo.Server.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WhatDo.Domain
 {
-    public class ToDoItemDto
+    public class ToDoItem
     {
+        public int Id { get; set; }
+
+        [Required]
         public string? Name { get; set; }
         public string? Description { get; set; }
         public DateTime DueDate { get; set; }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using WhatDo.Domain;
 
-namespace whatDo.Server.Controllers
+namespace WhatDo.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

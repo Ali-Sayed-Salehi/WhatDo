@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using whatDo.Server.Data.Contexts;
-using whatDo.Server.Models;
 using Microsoft.EntityFrameworkCore;
+using Persistence;
+using WhatDo.Domain;
+//TODO: have controllers use service methods from the application layer and remove reference to whatdo.domain
 
-namespace WhatDo.Server.Controllers
+namespace WhatDo.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using whatDo.Server.Models;
+﻿
+using Microsoft.EntityFrameworkCore;
+using WhatDo.Domain;
 
-namespace whatDo.Server.Data.Contexts
+namespace Persistence
 {
     public class WhatDoDbContext : DbContext
     {

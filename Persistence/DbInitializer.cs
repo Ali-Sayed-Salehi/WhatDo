@@ -1,7 +1,6 @@
-﻿using whatDo.Server.Data.Contexts;
-using whatDo.Server.Models;
+﻿using WhatDo.Domain;
 
-namespace whatDo.Server.Data
+namespace Persistence
 {
     public class DbInitializer
     {

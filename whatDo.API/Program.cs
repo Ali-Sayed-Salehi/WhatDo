@@ -1,9 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
-using whatDo.Server.Data;
-using whatDo.Server.Data.Contexts;
+using Persistence;
+using WhatDo.API.Extensions;
 
-namespace whatDo.Server
+namespace WhatDo.API
 {
     public class Program
     {

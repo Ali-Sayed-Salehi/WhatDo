@@ -1,4 +1,4 @@
-namespace whatDo.Server
+namespace WhatDo.Domain
 {
     public class WeatherForecast
     {

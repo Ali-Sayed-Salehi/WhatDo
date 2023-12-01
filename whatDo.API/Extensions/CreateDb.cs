@@ -1,8 +1,9 @@
-﻿using whatDo.Server.Data.Contexts;
+﻿
+using Persistence;
 
-namespace whatDo.Server.Data
+namespace WhatDo.API.Extensions
 {
-    public static class Extensions
+    public static class CreateDb
     {
         public static void CreateDbIfNotExists(this IHost host)
         {
