@@ -23,6 +23,15 @@ namespace WhatDo.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:5173");
+                });
+            });
+
+
             var app = builder.Build();
 
             app.UseDefaultFiles();
@@ -36,6 +45,8 @@ namespace WhatDo.API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

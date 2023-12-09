@@ -1,55 +1,50 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './App.css';
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface ToDoItem {
+    id: number;
+    name: string;
+    description: string;
+    dueDate: Date;
+    isCompleted: boolean;
 }
 
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+    const [toDoItems, setToDoItems] = useState<ToDoItem[]>();
 
     useEffect(() => {
-        populateWeatherData();
+        getToDoItems();
     }, []);
 
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+    if (toDoItems === undefined) {
+        return (
+            <div>
+                no todo items
+            </div>
+        )
+    }
+
 
     return (
         <div>
-            <h1 id="tabelLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
+            <ul>
+                {toDoItems.map(item => (
+                    <li key={item.id}>
+                        {item.description}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
+    async function getToDoItems() {
+
+        try {
+            const response = await axios.get('https://localhost:7071/api/ToDoItems');
+            setToDoItems(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
